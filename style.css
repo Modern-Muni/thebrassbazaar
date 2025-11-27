@@ -1,0 +1,310 @@
+/* ========= ROOT VARIABLES ========= */
+:root {
+    --bg-color: #fffdf7;
+    --dark-bg: #571718;
+
+    --accent-color: #d85c5c;
+    --divider-color: #e6b5b5;
+    --text-color: #b64242;
+    --light-text: #EFF885;
+
+    --transition-speed: 0.4s;
+}
+
+/* ========= DARK MODE ========= */
+body.dark {
+    background: var(--dark-bg);
+    color: var(--light-text);
+}
+
+body.dark a {
+    color: #f8caca;
+}
+
+body.dark .divider {
+    border-color: #320c0c;
+}
+
+body.dark .theme-toggle {
+    background: #320c0c;
+}
+
+/* ========= GENERAL ========= */
+body {
+    margin: 0;
+    background: var(--bg-color);
+    font-family: "Poppins", sans-serif;
+    transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+/* ========= PRELOADER ========= */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3b4b4;
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========= THEME TOGGLE ========= */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    transition: background var(--transition-speed);
+}
+
+/* ========= WHATSAPP FLOAT ========= */
+.float:hover {
+    transform: scale(1.10);
+}
+
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+.my-float {
+    margin-top: 16px;
+}
+
+/* ========= LOGO ========= */
+.logo-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    opacity: 0.95;
+    transition: transform var(--transition-speed);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* ========= Hero Section ========= */
+.hero {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 400px;
+    background-image: url("logo.png");
+    background-size: cover;
+    background-position: center;
+    /* border: 3px solid var(--accent-color);
+    border-radius: 8px; */
+    transition: transform var(--transition-speed);
+}
+
+.hero-image:hover {
+    transform: scale(1.02);
+}
+
+.opening-text {
+    margin-top: 12px;
+    font-size: 1.5rem;
+}
+
+/* ========= Divider ========= */
+.divider {
+    border: none;
+    border-top: 2px solid var(--divider-color);
+    margin: 35px 0;
+    opacity: 0.1;
+}
+
+/* ========= Info Section ========= */
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.info-icon {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.info-text a {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.landmark {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* ========= Instagram ========= */
+.insta-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.instagram-icon {
+    font-size: 3rem;
+    transition: transform 0.4s;
+}
+
+.instagram-icon:hover {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* ========= Footer ========= */
+.footer {
+    margin-top: 45px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* ========= Fade-in on scroll ========= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========= Responsive ========= */
+@media (max-width: 600px) {
+    .hero-image {
+        height: 200px;
+    }
+
+    .info-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ========== Instagram Feed Grid ========== */
+.instagram-feed {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.feed-title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+.insta-post {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+    transition: transform .4s ease;
+}
+
+.insta-post:hover {
+    transform: scale(1.05);
+}
+
+
+/* ========= Contact & Location Wrapper ========= */
+.contact-location-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* Individual Containers */
+.location-container,
+.contact-container {
+    flex: 1;
+    width: 100%;
+}
+
+/* Mobile Layout: Stack them */
+@media (max-width: 768px) {
+    .contact-location-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* ---------------- Responsive Google Maps ---------------- */
+.map-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Adjust ratio here */
+    position: relative;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

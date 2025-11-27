@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brass Bazaar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- ================= PRELOADER ================= -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ================= DARK MODE TOGGLE ================= -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- ================= MAIN CONTAINER ================= -->
+    <div class="container">
+
+        <!-- Brand Logo -->
+        <!-- <div class="logo-container fade-in">
+            <img src="logo.png" alt="Brand Logo" class="logo">
+        </div> -->
+
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <div class="hero-image"></div>
+            <h1 class="opening-text">Crafting stories in Brass.
+                Handcrafted with Love & Heritage.
+                One Stop destination for Brass Handicrafts. </h1>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Instagram Section -->
+        <section class="insta-section fade-in">
+            <a href="https://instagram.com/the.brassbazaar" target="_blank">
+                <i class="fab fa-instagram instagram-icon"></i>
+            </a>
+        </section>
+
+        <!-- ========== INSTAGRAM FEED ========== -->
+        <section class="instagram-feed fade-in">
+            <h2 class="feed-title">Latest from Instagram</h2>
+            <div id="insta-container" class="insta-grid"></div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- Contact & Location Wrapper -->
+        <div class="contact-location-wrapper fade-in">
+
+            <!-- Location Section -->
+            <div class="location-container">
+                <div class="info-header">
+                    <div class="info-icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <div class="info-text">
+                        <a href="https://maps.google.com" target="_blank">Our Location</a>
+                        <p class="landmark">1st Floor, Dr.no 4, 72-10, near Kamat Hotel, Lawsons Bay Colony,
+                            Visakhapatnam, Andhra Pradesh 530017</p>
+                    </div>
+                </div>
+
+                <!-- Responsive Google Maps -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.2410074579243!2d83.33842467739055!3d17.733279783214112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39450eb6d7bc21%3A0xde49ce4936eb1d1!2sThe%20Brass%20Bazaar!5e0!3m2!1sen!2sus!4v1763918461435!5m2!1sen!2sus"
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="contact-container">
+                <div class="info-header">
+                    <div class="info-icon"><i class="fa fa-phone"></i></div>
+                    <div class="info-text">
+                        <a href="tel:+919110735119">+91 91107 35119</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="divider">
+
+        <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <a href="https://chat.whatsapp.com/F2IS0aWdGykKs1QIlKR3Oj?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnS5g5vxaL0bxpvxQw8sVLyyRyQRYojxnFBIv7kTKnFrKWRvKj17ZfVT6cXs8_aem_pEfCP_l4TfPXR-qOyG4Pdg"
+            class="float" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
+
+        <!-- Footer -->
+        <footer class="footer fade-in">
+            <p>© 2025 The Brass Bazaar. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Preloader
+        window.onload = () => {
+            document.getElementById("preloader").style.display = "none";
+        };
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+
+        // Scroll Fade-in Animation
+        const faders = document.querySelectorAll(".fade-in");
+        const appearOptions = { threshold: 0.2 };
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => appearOnScroll.observe(fader));
+    </script>
+    <script>
+        // ===== INSTAGRAM FEED FETCHER =====
+
+        const token = "YOUR_ACCESS_TOKEN_HERE";
+        const userId = "YOUR_USER_ID";
+        const limit = 6; // number of posts to show
+
+        const url = `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&access_token=${token}`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById("insta-container");
+                const posts = data.data.slice(0, limit);
+
+                posts.forEach(post => {
+                    if (post.media_type === "IMAGE" || post.media_type === "CAROUSEL_ALBUM") {
+                        container.innerHTML += `
+                        <a href="${post.permalink}" target="_blank" class="insta-post"
+                        style="background-image:url('${post.media_url}')"></a>
+                    `;
+                    }
+                    else if (post.media_type === "VIDEO") {
+                        container.innerHTML += `
+                        <a href="${post.permalink}" target="_blank" class="insta-post"
+                        style="background-image:url('${post.thumbnail_url}')"></a>
+                    `;
+                    }
+                });
+            })
+            .catch(err => console.log("Instagram API Error:", err));
+    </script>
+
+</body>
+
+</html>
