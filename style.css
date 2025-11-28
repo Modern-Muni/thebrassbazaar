@@ -6,7 +6,7 @@
     --accent-color: #d85c5c;
     --divider-color: #e6b5b5;
     --text-color: #b64242;
-    --light-text: #EFF885;
+    --light-text: #DEAE7C;
 
     --transition-speed: 0.4s;
 }
@@ -26,7 +26,7 @@ body.dark .divider {
 }
 
 body.dark .theme-toggle {
-    background: #320c0c;
+    background: #571718;
 }
 
 /* ========= GENERAL ========= */
@@ -34,7 +34,10 @@ body {
     margin: 0;
     background: var(--bg-color);
     color: var(--text-color);
-    font-family: "Poppins", sans-serif;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     transition: background var(--transition-speed), color var(--transition-speed);
 }
 
@@ -132,10 +135,6 @@ body {
     transform: scale(1.02);
 }
 
-.opening-text {
-    margin-top: 12px;
-    font-size: 1.5rem;
-}
 
 /* ========= Divider ========= */
 .divider {
@@ -191,6 +190,7 @@ body {
 
 .feed-title {
     font-size: 1.6rem;
+    font-family: "saman", serif;
     margin-bottom: 15px;
     color: var(--text-color);
 }
@@ -236,8 +236,7 @@ body {
     width: 100%;
 }
 
-.location-container,
-.contact-container {
+.location-container {
     flex: 1;
     width: 100%;
 }
@@ -270,4 +269,23 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+
+.quicksand-light {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'saman';
+    /* Choose a descriptive name for your font */
+    src: url('SAMAN___.ttf') format('truetype');
+    /* Specify the path to your .ttf file */
+    font-weight: normal;
+    /* Optional: Define font weight if applicable */
+    font-style: normal;
+    /* Optional: Define font style if applicable */
 }
