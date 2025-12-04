@@ -1,32 +1,14 @@
 /* ========= ROOT VARIABLES ========= */
 :root {
-    --bg-color: #fffdf7;
+    --bg-color: #5C1817;
     --dark-bg: #5C1817;
 
     --accent-color: #d85c5c;
-    --divider-color: #e6b5b5;
-    --text-color: #b64242;
+    --divider-color: #320c0c;
+    --text-color: #DEAE7C;
     --light-text: #DEAE7C;
 
     --transition-speed: 0.4s;
-}
-
-/* ========= DARK MODE ========= */
-body.dark {
-    background: var(--dark-bg);
-    color: var(--light-text);
-}
-
-body.dark a {
-    color: #f8caca;
-}
-
-body.dark .divider {
-    border-color: #320c0c;
-}
-
-body.dark .theme-toggle {
-    background: #5C1817;
 }
 
 /* ========= GENERAL ========= */
@@ -39,6 +21,10 @@ body {
     font-weight: 500;
     font-style: normal;
     transition: background var(--transition-speed), color var(--transition-speed);
+}
+
+a {
+    color: #f8caca;
 }
 
 .container {
@@ -75,20 +61,6 @@ body {
     to {
         transform: rotate(360deg);
     }
-}
-
-/* ========= THEME TOGGLE ========= */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #fff;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 9999;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    transition: background var(--transition-speed);
 }
 
 /* ========= WHATSAPP FLOAT ========= */

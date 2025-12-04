@@ -26,11 +26,6 @@
         <div class="spinner"></div>
     </div>
 
-    <!-- ================= DARK MODE TOGGLE ================= -->
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-moon"></i>
-    </div>
-
     <!-- ================= MAIN CONTAINER ================= -->
     <img src="BrassBazaar.jpg" class="hero-image-full fade-in" alt="The Brass Bazaar">
     <div class="container">
@@ -185,11 +180,6 @@
         window.onload = () => {
             document.getElementById("preloader").style.display = "none";
         };
-
-        // Theme Toggle
-        function toggleTheme() {
-            document.body.classList.toggle("dark");
-        }
 
         // Scroll Fade-in Animation
         const faders = document.querySelectorAll(".fade-in");
